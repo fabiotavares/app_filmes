@@ -25,6 +25,7 @@ class MoviesGroup extends StatelessWidget {
             child: ListView.builder(
               // para evitar erro por estar dentro de uma column
               shrinkWrap: true,
+              // physics: PageScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index) {
