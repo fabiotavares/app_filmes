@@ -1,8 +1,13 @@
 import 'package:app_filmes/application/ui/filmes_app_icons_icons.dart';
+import 'package:app_filmes/models/movie_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({Key? key}) : super(key: key);
+  final dateFormat = DateFormat('dd/MM/y');
+  final MovieModel movie;
+
+  MovieCard({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class MovieCard extends StatelessWidget {
                     // tirando um pouco do serrilhado das bordas arredondadas
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(
-                      'https://upload.wikimedia.org/wikipedia/pt/thumb/6/63/Joker_%282019%29.jpg/250px-Joker_%282019%29.jpg',
+                      movie.posterPath,
                       width: 148,
                       height: 184,
                       fit: BoxFit.cover,
@@ -34,14 +39,14 @@ class MovieCard extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Coringa',
+                  movie.title,
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                   // se o texto for muito grande, mostra parcialmente
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
                 Text(
-                  '2019',
+                  dateFormat.format(DateTime.parse(movie.releaseDate)),
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300, color: Colors.grey),
                 ),
               ],

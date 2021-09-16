@@ -16,8 +16,10 @@ class MoviesController extends GetxController with MessagesMixin {
   final popularMovies = <MovieModel>[].obs;
   final topRatedMovies = <MovieModel>[].obs;
 
-  final _popularMoviesOriginal = <MovieModel>[];
-  final _topRatedMoviesOriginal = <MovieModel>[];
+  var _popularMoviesOriginal = <MovieModel>[];
+  var _topRatedMoviesOriginal = <MovieModel>[];
+
+  final genreSelected = Rxn<GenreModel>();
 
   MoviesController({required GenresService genresService, required MoviesService moviesService})
       : _genresService = genresService,
@@ -45,13 +47,58 @@ class MoviesController extends GetxController with MessagesMixin {
       final topRatedData = await _moviesService.getTopRated();
 
       popularMovies.assignAll(popularesData);
+      _popularMoviesOriginal = popularesData;
+
       topRatedMovies.assignAll(topRatedData);
+      _topRatedMoviesOriginal = topRatedData;
     } catch (e, s) {
       print('Erros ao carregar dados da página Movies:');
       print(e);
       print(s);
       // só de alterar a messega já é suficiente para uma mensagem ser exibida
       _message(MessageModel.error(title: 'Erro', message: 'Erro ao carregar dados da página'));
+    }
+  }
+
+  void filterByName(String title) {
+    if (title.isNotEmpty) {
+      // filtra nos valores originais
+      var newPopularMovies =
+          _popularMoviesOriginal.where((movie) => movie.title.toLowerCase().contains(title.toLowerCase())).toList();
+
+      var newTopRatedMovies =
+          _topRatedMoviesOriginal.where((movie) => movie.title.toLowerCase().contains(title.toLowerCase())).toList();
+
+      popularMovies.assignAll(newPopularMovies);
+      topRatedMovies.assignAll(newTopRatedMovies);
+    } else {
+      // volta para todos os valores originais
+      popularMovies.assignAll(_popularMoviesOriginal);
+      topRatedMovies.assignAll(_topRatedMoviesOriginal);
+    }
+  }
+
+  void filterByGenre(GenreModel? genreModel) {
+    var genreFilter = genreModel;
+
+    // se o gênero passado já for igual ao selecionado, significa que foi um segundo clique seguido => tira o filtro
+    if (genreFilter?.id == genreSelected.value?.id) {
+      genreFilter = null;
+    }
+
+    genreSelected.value = genreFilter;
+
+    if (genreFilter != null) {
+      // aplica o filtro nas listas
+      var newPopularMovies = _popularMoviesOriginal.where((movie) => movie.genres.contains(genreFilter?.id)).toList();
+      var newTopRatedMovies = _topRatedMoviesOriginal.where((movie) => movie.genres.contains(genreFilter?.id)).toList();
+
+      popularMovies.assignAll(newPopularMovies);
+      topRatedMovies.assignAll(newTopRatedMovies);
+    } else {
+      // volta para todos os valores originais
+      popularMovies.assignAll(_popularMoviesOriginal);
+      topRatedMovies.assignAll(_topRatedMoviesOriginal);
     }
   }
 }
