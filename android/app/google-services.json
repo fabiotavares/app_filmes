@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "747958899027",
+    "project_id": "dart-week-app-filmes-7cfbc",
+    "storage_bucket": "dart-week-app-filmes-7cfbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747958899027:android:4d774052f5ac4abf8751a6",
+        "android_client_info": {
+          "package_name": "dev.tavares.app_filmes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747958899027-1vnm9nclnsauicolqlebfcut70bi8b3b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.tavares.app_filmes",
+            "certificate_hash": "2dbc4ee7a859c314fe52b9621017e3609d5cb165"
+          }
+        },
+        {
+          "client_id": "747958899027-qvn09i0nhv6igkdkesomemk42fjvsllt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4jCk56XosxtbyJbG2UaF1f86Oc00R9AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747958899027-qvn09i0nhv6igkdkesomemk42fjvsllt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "747958899027-jh3kceko82qvfvup9ff77ijt23ltoga5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.tavares.appFilmes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>747958899027-jh3kceko82qvfvup9ff77ijt23ltoga5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.747958899027-jh3kceko82qvfvup9ff77ijt23ltoga5</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>747958899027-1vnm9nclnsauicolqlebfcut70bi8b3b.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCDQ81OYdNUfC4jZm_BiRefygbfOcRdtao</string>
+	<key>GCM_SENDER_ID</key>
+	<string>747958899027</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.tavares.appFilmes</string>
+	<key>PROJECT_ID</key>
+	<string>dart-week-app-filmes-7cfbc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dart-week-app-filmes-7cfbc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:747958899027:ios:3999928cdec10f868751a6</string>
+</dict>
+</plist>
